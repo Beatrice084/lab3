@@ -43,7 +43,7 @@ var products = [
 		vegetarian: false,
         glutenFree: true,
         organic: true,
-		price: 15.50
+		price: 15.51
 	},
 	{
 		name: "speghetti pasta",
@@ -64,7 +64,7 @@ var products = [
         vegetarian: true,
         glutenFree: true,
         organic: true,
-		price: 6.50
+		price: 6.51
     },
     {
         name: "milk",
