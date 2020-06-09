@@ -3,6 +3,7 @@
 <head>
 	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
 	<link href="styles/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -21,29 +22,50 @@
 <div id="Client" class="tabcontent">
   <h3>Client Information</h3>
   <p>Tell us a bit about you.</p>
-  <p>Choose a Category:</p>
+  <p>Select any dietary preferences:</p>
 	<!-- <select id="dietSelect" name="dietSelect" onchange="populateListProductChoices(this.id, 'displayProduct')" multiple>
 	<option value="Vegetarian">Vegetarian</option>
     <option value="GlutenFree">Gluten Free</option>
     <option value="OrganicOnly">Organic Only</option>
     <option value="None">None</option>
     </select> -->
-    <input type="checkbox" id="dietSelect" name="dietSelect" value="Vegetarian">
-    <label for="dietSelect">Vegetarian</label><br>
-    <input type="checkbox" id="dietSelect" name="dietSelect" value="GlutenFree">
-    <label for="dietSelect">Gluten Free</label><br>
-    <input type="checkbox" id="dietSelect" name="dietSelect" value="OrganicOnly">
-    <label for="dietSelect">Organic Only</label><br>
-    <input type="checkbox" id="dietSelect" name="dietSelect" value="None">
-    <label for="dietSelect">None</label><br>
+    <!-- Rounded switch -->
+    <p class="dietLabel">Vegetarian</p>
+    <label class="switch">
+      <input type="checkbox" name="dietSelect" value="Vegetarian">
+      <span class="slider round"></span>
+    </label><br>
+    <p class="dietLabel">Gluten Free</p>
+    <label class="switch">
+      <input type="checkbox" name="dietSelect" value="GlutenFree">
+      <span class="slider round"></span>
+    </label><br>
+    <p class="dietLabel">Organic Only</p>
+    <label class="switch">
+      <input type="checkbox" name="dietSelect" value="OrganicOnly"> 
+      <span class="slider round"></span>
+    </label><br>
+    <p class="dietLabel">None</p>
+    <label class="switch">
+      <input type="checkbox" name="dietSelect" value="None">
+      <span class="slider round"></span>
+    </label><br>
     <button onclick="populateListProductChoices('displayProduct')">Submit</button>
 </div>
 
 <div id="Products" class="tabcontent">
   <h3>Your targeted products</h3>
-  <p>We preselected products based on your restrictions.</p>
+  <p>We preselected products based on your preferences.</p>
 	 Choose items to buy:
-	 <div id="displayProduct"></div>
+   <div id="displayProduct"></div>
+   <button class="accordion">Fruits & Vegetables</button>
+    <div class="panel" id="Fruits & Vegetables"></div>
+    <button class="accordion">Grains</button>
+    <div class="panel" id="Grains"></div>
+    <button class="accordion">Meat</button>
+    <div class="panel" id="Meat"></div>
+    <button class="accordion">Dairy</button>
+    <div class="panel" id="Dairy"></div>
 	 <button id="addCart" type="button" class="block" onclick="selectedItems()">
 		Add selected items to cart.
 	</button>
@@ -51,7 +73,7 @@
 
 <div id="Cart" class="tabcontent">
   <h3>Cart</h3>
-  <p>Here is your cart.</p>
+  <p>Here is the contents of your cart.</p>
   <div id="displayCart"></div>
 </div>
 <footer>
@@ -61,6 +83,8 @@
 
 <script src="scripts/groceries.js"></script>
 <script src="scripts/main.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>

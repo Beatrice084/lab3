@@ -1,6 +1,24 @@
 // This function is called when any of the tab is clicked
 // It is adapted from https://www.w3schools.com/howto/howto_js_tabs.asp
 
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+acc[i].addEventListener("click", function() {
+	/* Toggle between adding and removing the "active" class,
+	to highlight the button that controls the panel */
+	this.classList.toggle("active");
+
+	/* Toggle between hiding and showing the active panel */
+	var panel = this.nextElementSibling;
+	if (panel.style.display === "block") {
+	panel.style.display = "none";
+	} else {
+	panel.style.display = "block";
+	}
+});
+}
 function openInfo(evt, tabName) {
 
 	// Get all elements with class="tabcontent" and hide them
@@ -39,19 +57,25 @@ function populateListProductChoices(slct2) {
 	// obtain a reduced list of products based on restrictions
     var finalArray = restrictListProducts(products, restrictions);
     var optionArray = finalArray[0]
-    var priceArray = finalArray[1]
-    var s2 = document.getElementById(slct2);
-	
-	// s2 represents the <div> in the Products tab, which shows the product list, so we first set it empty
-    s2.innerHTML = "";
-	// for each item in the array, create a checkbox element, each containing information such as:
-	// <input type="checkbox" name="product" value="Bread">
-	// <label for="Bread">Bread/label><br>
-		
+	var priceArray = finalArray[1]
+	var categoryArray = finalArray[2]
+
 	for (i = 0; i < optionArray.length; i++) {
-			
+		if (i==0) {
+			var Meat = document.getElementById("Meat")
+			Meat.innerHTML = ""
+			var Grains = document.getElementById("Grains")
+			Grains.innerHTML = ""
+			var fruit = document.getElementById("Fruits & Vegetables")
+			fruit.innerHTML = ""
+			var dairy = document.getElementById("Dairy")
+			dairy.innerHTML = ""
+		}
         var productName = optionArray[i];
-        var productPrice = priceArray[i].toFixed(2);
+		var productPrice = priceArray[i].toFixed(2);
+		var productCategory = categoryArray[i]
+		var s2 = document.getElementById(productCategory)
+
 		// create the checkbox and add in HTML DOM
 		var checkbox = document.createElement("input");
 		checkbox.type = "checkbox";

@@ -7,71 +7,88 @@ var products = [
 		vegetarian: true,
         glutenFree: true,
         organic: true,
-        price: 1.99
+        price: 1.99,
+        category: "Fruits & Vegetables"
 	},
 	{
 		name: "bread",
 		vegetarian: true,
         glutenFree: false,
         organic: false,
-
-		price: 2.35
+        price: 2.35,
+        category: "Grains"
 	},
 	{
 		name: "salmon",
 		vegetarian: false,
         glutenFree: true,
         organic: false,
-		price: 10.00
+        price: 10.00,
+        category: "Meat"
     },
     {
         name: "rice",
         vegetarian: true,
         glutenFree: true,
-        organic: false,
-		price: 5.00
+        organic: true,
+		price: 5.00,
+        category: "Grains"
     },
     {
         name: "oranges",
         vegetarian: true,
         glutenFree: true,
         organic: true,
-		price: 6.00
+        price: 6.00,
+        category: "Fruits & Vegetables"
     },
     {
 		name: "steak",
 		vegetarian: false,
         glutenFree: true,
         organic: true,
-		price: 15.51
+        price: 15.51,
+        category: "Meat"
 	},
 	{
 		name: "speghetti pasta",
 		vegetarian: true,
         glutenFree: false,
         organic: false,
-		price: 1.89
+        price: 1.89,
+        category: "Grains"
 	},
 	{
 		name: "cheese",
 		vegetarian: true,
         glutenFree: true,
         organic: true,
-		price: 5.99
+        price: 5.99,
+        category: "Dairy"
     },
     {
         name: "apples",
         vegetarian: true,
         glutenFree: true,
         organic: true,
-		price: 6.51
+        price: 6.51,
+        category: "Fruits & Vegetables"
     },
     {
         name: "milk",
         vegetarian: true,
         glutenFree: true,
         organic: false,
-		price: 4.99
+        price: 4.99,
+        category: "Dairy"
+    },
+    {
+        name: "Beyond Meat Burgers",
+        vegetarian: true,
+        glutenFree: true,
+        organic: true,
+        price: 10.99,
+        category: "Meat"
     }
 ];
 	
@@ -90,6 +107,7 @@ function remove(arr, item) {
 function restrictListProducts(prods, restriction) {
     let product_names = [];
     let product_price = [];
+    let product_category = [];
     console.log(restriction)
     for (let i=0; i<prods.length; i+=1) {
         product_names.push(prods[i])
@@ -108,10 +126,11 @@ function restrictListProducts(prods, restriction) {
     product_names.sort(function(a, b){return a.price - b.price});
     for (let i=0; i<product_names.length; i+=1) {
         product_price.push(product_names[i].price)
+        product_category.push(product_names[i].category)
         product_names[i] = product_names[i].name
     }
     console.log(product_names)
-	return [product_names, product_price];
+	return [product_names, product_price, product_category];
 }
 
 // Calculate the total price of items, with received parameter being a list of products
